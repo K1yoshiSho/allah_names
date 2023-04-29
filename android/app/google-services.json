@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "536706167570",
+    "project_id": "app-allah-names",
+    "storage_bucket": "app-allah-names.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536706167570:android:7c052cacac98ab794b79cb",
+        "android_client_info": {
+          "package_name": "app.allah_names"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536706167570-2chs7cq4rbtvpplincousgja5bgcdtb7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCflO0WVpkfqaCi0vcF1HQR-4Qu3humaIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536706167570-2chs7cq4rbtvpplincousgja5bgcdtb7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
