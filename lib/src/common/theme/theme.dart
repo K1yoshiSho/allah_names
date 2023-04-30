@@ -4,16 +4,16 @@ import 'package:flutter/services.dart';
 
 final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColorLight,
     brightness: Brightness.light,
     splashColor: AppColors.splashColor,
     splashFactory: InkRipple.splashFactory,
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.lightPrimaryColor,
     unselectedWidgetColor: AppColors.gray300,
     primaryColorLight: AppColors.gray200,
     listTileTheme: ListTileThemeData(
       selectedColor: Colors.white,
-      selectedTileColor: AppColors.accent100,
+      selectedTileColor: AppColors.gray100,
       horizontalTitleGap: 5,
       tileColor: Colors.transparent,
       shape: RoundedRectangleBorder(
@@ -114,7 +114,7 @@ final ThemeData lightTheme = ThemeData(
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
         borderSide: BorderSide(
-          color: AppColors.primaryColor,
+          color: AppColors.lightPrimaryColor,
           width: 1.5,
         ),
       ),
@@ -153,23 +153,23 @@ final ThemeData lightTheme = ThemeData(
       ),
     ),
     timePickerTheme: TimePickerThemeData(
-      dialHandColor: AppColors.primaryColor,
-      hourMinuteTextColor: AppColors.primaryColor,
+      dialHandColor: AppColors.lightPrimaryColor,
+      hourMinuteTextColor: AppColors.lightPrimaryColor,
       backgroundColor: const Color(0xffF1F8EC),
-      dayPeriodTextColor: AppColors.primaryColor,
-      dialBackgroundColor: AppColors.primaryColor.withOpacity(0.1),
+      dayPeriodTextColor: AppColors.lightPrimaryColor,
+      dialBackgroundColor: AppColors.lightPrimaryColor.withOpacity(0.1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     ),
     textSelectionTheme: TextSelectionThemeData(
-      cursorColor: AppColors.primaryColor,
+      cursorColor: AppColors.lightPrimaryColor,
       selectionColor: const Color(0xFF3C4A7C).withOpacity(0.40),
     ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: Colors.transparent,
-      color: AppColors.primaryColor,
+      color: AppColors.lightPrimaryColor,
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.lightPrimaryColor,
     ),
     appBarTheme: AppBarTheme(
       color: Colors.white,
@@ -192,14 +192,15 @@ final ThemeData lightTheme = ThemeData(
       indicatorSize: TabBarIndicatorSize.tab,
       dividerColor: Colors.transparent,
     ),
-    colorScheme: const ColorScheme.light().copyWith(primary: AppColors.primaryColor).copyWith(background: Colors.white),
+    colorScheme:
+        const ColorScheme.light().copyWith(primary: AppColors.lightPrimaryColor).copyWith(background: Colors.white),
     switchTheme: SwitchThemeData(
       overlayColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) return AppColors.primaryColor;
+        if (states.contains(MaterialState.selected)) return AppColors.lightPrimaryColor;
         return AppColors.gray300;
       }),
       thumbColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.selected)) return AppColors.primaryColor;
+        if (states.contains(MaterialState.selected)) return AppColors.lightPrimaryColor;
         return AppColors.gray300;
       }),
       trackColor: MaterialStateProperty.all(const Color(0xFFE0E2D8)),
@@ -209,7 +210,7 @@ final ThemeData lightTheme = ThemeData(
           return AppColors.gray300;
         }
         if (states.contains(MaterialState.selected)) {
-          return AppColors.accent500;
+          return AppColors.lightPrimaryColor;
         }
         return AppColors.gray300;
       }),
@@ -218,27 +219,27 @@ final ThemeData lightTheme = ThemeData(
           return AppColors.gray300;
         }
         if (states.contains(MaterialState.selected)) {
-          return AppColors.accent500;
+          return AppColors.lightPrimaryColor;
         }
         return AppColors.gray300;
       }),
     ),
     radioTheme: RadioThemeData(
-      fillColor: MaterialStateProperty.all(AppColors.accent500),
+      fillColor: MaterialStateProperty.all(AppColors.lightPrimaryColor),
     ).copyWith(
       fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
         if (states.contains(MaterialState.disabled)) {
           return AppColors.gray300;
         }
         if (states.contains(MaterialState.selected)) {
-          return AppColors.accent500;
+          return AppColors.lightPrimaryColor;
         }
         return AppColors.gray300;
       }),
     ),
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.resolveWith((states) {
-        return AppColors.accent500;
+        return AppColors.lightPrimaryColor;
       }),
       overlayColor: MaterialStateProperty.all(AppColors.splashColor),
       side: BorderSide(
@@ -260,8 +261,8 @@ final ThemeData lightTheme = ThemeData(
 //   highlightColor: AppColors.splashColor,
 //   listTileTheme: ListTileThemeData(
 //     selectedColor: Colors.white,
-//     selectedTileColor: AppColors.primaryColor.withOpacity(0.1),
-//     tileColor: AppColors.primaryColor.withOpacity(0.1),
+//     selectedTileColor: AppColors.lightPrimaryColor.withOpacity(0.1),
+//     tileColor: AppColors.lightPrimaryColor.withOpacity(0.1),
 //     shape: RoundedRectangleBorder(
 //       borderRadius: BorderRadius.circular(10),
 //     ),
@@ -362,7 +363,7 @@ final ThemeData lightTheme = ThemeData(
 //     focusedBorder: OutlineInputBorder(
 //       borderRadius: BorderRadius.circular(10),
 //       borderSide: BorderSide(
-//         color: AppColors.primaryColor,
+//         color: AppColors.lightPrimaryColor,
 //         width: 1.5,
 //       ),
 //     ),
@@ -384,23 +385,23 @@ final ThemeData lightTheme = ThemeData(
 //     ),
 //   ),
 //   timePickerTheme: TimePickerThemeData(
-//     dialHandColor: AppColors.primaryColor,
-//     hourMinuteTextColor: AppColors.primaryColor,
+//     dialHandColor: AppColors.lightPrimaryColor,
+//     hourMinuteTextColor: AppColors.lightPrimaryColor,
 //     backgroundColor: const Color(0xffF1F8EC),
-//     dayPeriodTextColor: AppColors.primaryColor,
-//     dialBackgroundColor: AppColors.primaryColor.withOpacity(0.1),
+//     dayPeriodTextColor: AppColors.lightPrimaryColor,
+//     dialBackgroundColor: AppColors.lightPrimaryColor.withOpacity(0.1),
 //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
 //   ),
 //   textSelectionTheme: TextSelectionThemeData(
-//     cursorColor: AppColors.primaryColor,
+//     cursorColor: AppColors.lightPrimaryColor,
 //     selectionColor: const Color(0xFF3C4A7C).withOpacity(0.40),
 //   ),
 //   progressIndicatorTheme: ProgressIndicatorThemeData(
 //     circularTrackColor: Colors.transparent,
-//     color: AppColors.primaryColor,
+//     color: AppColors.lightPrimaryColor,
 //   ),
 //   floatingActionButtonTheme: FloatingActionButtonThemeData(
-//     backgroundColor: AppColors.primaryColor,
+//     backgroundColor: AppColors.lightPrimaryColor,
 //   ),
 //   appBarTheme: AppBarTheme(
 //     color: Colors.white,
@@ -420,15 +421,15 @@ final ThemeData lightTheme = ThemeData(
 //     iconTheme: IconThemeData(color: AppColors.abyssColor, size: 20),
 //   ),
 //   radioTheme: RadioThemeData(
-//     fillColor: MaterialStateProperty.all(AppColors.primaryColor),
+//     fillColor: MaterialStateProperty.all(AppColors.lightPrimaryColor),
 //   ),
 //   switchTheme: SwitchThemeData(
 //     overlayColor: MaterialStateProperty.resolveWith((states) {
-//       if (states.contains(MaterialState.selected)) return AppColors.primaryColor;
+//       if (states.contains(MaterialState.selected)) return AppColors.lightPrimaryColor;
 //       return AppColors.gray300;
 //     }),
 //     thumbColor: MaterialStateProperty.resolveWith((states) {
-//       if (states.contains(MaterialState.selected)) return AppColors.primaryColor;
+//       if (states.contains(MaterialState.selected)) return AppColors.lightPrimaryColor;
 //       return AppColors.gray300;
 //     }),
 //     trackColor: MaterialStateProperty.all(const Color(0xFFE0E2D8)),
@@ -442,5 +443,5 @@ final ThemeData lightTheme = ThemeData(
 //     indicatorSize: TabBarIndicatorSize.tab,
 //     dividerColor: Colors.transparent,
 //   ),
-//   colorScheme: const ColorScheme.light().copyWith(primary: AppColors.primaryColor).copyWith(background: Colors.white),
+//   colorScheme: const ColorScheme.light().copyWith(primary: AppColors.lightPrimaryColor).copyWith(background: Colors.white),
 // );

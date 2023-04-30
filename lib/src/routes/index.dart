@@ -1,5 +1,9 @@
 // ------------------------ Home Page ------------------------
-export '../screens/home/home_page.dart' show HomePage;
+export '../features/main/home/home_page.dart' show HomePage;
 
 // ------------------------ Error Page ------------------------
-export '../screens/other/error_page.dart' show ErrorPage;
+export '../features/other/error_page.dart' show ErrorPage;
+
+// ------------------------ Settings Page ------------------------
+
+export '../features/main/settings/settings_page.dart' show SettingsPage;

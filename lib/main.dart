@@ -1,52 +1,69 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:allah_names/firebase_options.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
-import 'package:allah_names/src/screens/app/app.dart';
+import 'package:allah_names/src/features/app/app.dart';
 import 'package:allah_names/src/services/provider/locale_provider.dart';
-import 'package:background_location/background_location.dart';
+import 'package:allah_names/src/services/provider/theme_provider.dart';
+import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:logger/logger.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
+import 'package:talker_bloc_logger/talker_bloc_logger.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final Talker talker = TalkerFlutter.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  var logger = Logger();
-
-  logger.v("Verbose log");
-  logger.d("Debug log");
-  logger.i("Info log");
-  logger.w("Warning log");
-  logger.e("Error log");
-  logger.wtf("What a terrible failure log");
-
-  await initGetIt();
   await sharedPreference.initSharedPreferences();
+  await initTalker(talker: talker);
+
+  sharedPreference.setDarkMode(false);
+  runZonedGuarded(() {
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => LocaleNotifier()),
+          ChangeNotifierProvider(create: (context) => ThemeProviderNotifier()),
+        ],
+        child: const AllahApp(),
+      ),
+    );
+  }, (error, stackTrace) {
+    FirebaseCrashlytics.instance.recordError(error, stackTrace);
+    GetIt.I<Talker>().handle(error, stackTrace);
+  });
+}
+
+Future<void> initTalker({required Talker talker}) async {
+  GetIt.I.registerSingleton<Talker>(talker);
+  GetIt.I<Talker>().debug("99 names app started");
+
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
   };
 
+  Bloc.observer = TalkerBlocObserver(
+      talker: talker,
+      settings: const TalkerBlocLoggerSettings(
+        printEventFullData: false,
+        printStateFullData: false,
+      ));
+
   PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    FirebaseCrashlytics.instance.recordError(error, stack);
+    GetIt.I<Talker>().handle(error, stack);
     return true;
   };
 
-  sharedPreference.setDarkMode(false);
-
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => LocaleNotifier()),
-        // ChangeNotifierProvider(create: (context) => HomeProvider()),
-        // ChangeNotifierProvider(create: (context) => CreateDocumentProvider()),
-      ],
-      child: const AllahApp(),
-    ),
-  );
+  FlutterError.onError = (details) => {
+        FirebaseCrashlytics.instance.recordError(details.exception, details.stack),
+        GetIt.I<Talker>().handle(details.exception, details.stack),
+      };
 }

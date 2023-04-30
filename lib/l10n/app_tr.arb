@@ -1,3 +1,7 @@
 {
-   "appName": "Allah'ın 99 ismi"
+   "appName": "Allah'ın 99 ismi",
+   "home": "Ana",
+   "favourites": "Seçilmiş",
+   "additinally": "Ek",
+   "settings": "Ayarlar"
 }
