@@ -1,9 +1,13 @@
 import 'package:allah_names/src/common/components/navbar.dart';
+import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/features/app/initial_splash_page.dart';
 import 'package:allah_names/src/features/main/additionally/additionally.dart';
 import 'package:allah_names/src/features/main/favourites/favourites.dart';
 import 'package:allah_names/src/features/main/home/home_page.dart';
+import 'package:allah_names/src/features/main/home/subpages/search_screen.dart';
 import 'package:allah_names/src/features/main/settings/settings_page.dart';
-import 'package:allah_names/src/features/name/single_name.dart';
+import 'package:allah_names/src/features/single_name/single_name_page.dart';
+
 import 'package:allah_names/src/routes/index.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +22,13 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           path: '/',
-          page: AppNavBarRoute.page,
+          page: SplashScreenRoute.page,
+          initial: true,
           maintainState: false,
+        ),
+        AutoRoute(
+          path: '/',
+          page: AppNavBarRoute.page,
           children: [
             AutoRoute(
               path: 'names',
@@ -32,6 +41,10 @@ class AppRouter extends _$AppRouter {
                 AutoRoute(
                   path: ':nameID',
                   page: SingleNameRoute.page,
+                ),
+                AutoRoute(
+                  path: 'search',
+                  page: SearchRoute.page,
                 )
               ],
             ),
@@ -66,6 +79,6 @@ class AppRouter extends _$AppRouter {
               ],
             ),
           ],
-        ),
+        )
       ];
 }

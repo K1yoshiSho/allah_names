@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:allah_names/src/common/models/allah_name.dart';
 import 'package:allah_names/src/features/main/home/bloc/home_bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,10 +30,14 @@ class BLoCHomeRepository extends HomeRepository {
     try {
       emit(HKZLoadingState());
       final String response = await rootBundle.loadString('assets/json/names_kz.json');
-      final data = await json.decode(response);
+      final data = await compute(parseJsonData, response);
       emit(HKZFetchedState(namesListKZ: AllahNameKZ.fromList(data)));
     } catch (e) {
       emit(HKZFailureState(message: e.toString()));
     }
   }
+}
+
+dynamic parseJsonData(String jsonString) {
+  return json.decode(jsonString);
 }

@@ -5,7 +5,11 @@ class OutlinedTextfield extends StatelessWidget {
   final String hintText;
   final String? labelText;
   final bool? readOnly;
+  final InputBorder? focuedBorder;
+  final InputBorder? enabledBorder;
+  final bool? autofocus;
   final Function()? onTap;
+  final Color? fillColor;
   final Function(String?)? onChanged;
   final TextEditingController? textController;
   final int? maxLines;
@@ -33,6 +37,10 @@ class OutlinedTextfield extends StatelessWidget {
     this.maxLength,
     this.validator,
     this.onChanged,
+    this.autofocus,
+    this.focuedBorder,
+    this.enabledBorder,
+    this.fillColor,
   }) : super(key: key);
 
   // FocusNode focusNode = FocusNode();
@@ -47,7 +55,7 @@ class OutlinedTextfield extends StatelessWidget {
       textAlignVertical: TextAlignVertical.top,
       maxLength: maxLength,
       validator: validator,
-      autofocus: false,
+      autofocus: autofocus ?? false,
       keyboardType: keyboardType ?? TextInputType.text,
       maxLines: maxLines,
       minLines: minLines,
@@ -87,24 +95,26 @@ class OutlinedTextfield extends StatelessWidget {
             width: 1.5,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(
-            color: readOnly ?? false ? AppColors.gray200 : AppColors.gray300,
-            width: 1.5,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
-          borderSide: BorderSide(
-            color: readOnly ?? false ? AppColors.gray200 : AppColors.gray300,
-            width: 1.5,
-          ),
-        ),
+        focusedBorder: focuedBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(
+                color: readOnly ?? false ? AppColors.gray200 : AppColors.gray300,
+                width: 1.5,
+              ),
+            ),
+        enabledBorder: enabledBorder ??
+            OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(
+                color: readOnly ?? false ? AppColors.gray200 : AppColors.gray300,
+                width: 1.5,
+              ),
+            ),
         filled: true,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        fillColor: enabled ?? true ? Theme.of(context).scaffoldBackgroundColor : AppColors.gray100,
+        fillColor: fillColor ?? (enabled ?? true ? Theme.of(context).scaffoldBackgroundColor : AppColors.gray100),
         contentPadding: const EdgeInsets.only(top: 18, bottom: 18, left: 15),
       ),
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(

@@ -13,7 +13,14 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>allah_names</string>
+	<string>99 names of Allah</string>
+   <key>CFBundleLocalizations</key>
+   <array>
+   <string>kk</string>
+   <string>ru</string>
+   <string>en</string>
+   <string>tr</string>
+   </array>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

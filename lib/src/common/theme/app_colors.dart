@@ -8,7 +8,7 @@ class AppColors {
   static Color dangerColor = const Color(0xFFef4444);
   static Color danger100 = const Color(0xFFfef2f2);
   static Color successColor = const Color(0xFF68a835);
-  static Color splashColor = const Color.fromARGB(15, 119, 117, 117);
+  static Color splashColor = const Color.fromARGB(15, 154, 151, 151);
   static Color splashColorMButton = const Color.fromARGB(24, 158, 158, 158);
   static Color highlightColor = const Color.fromARGB(15, 119, 117, 117);
   static Color gray100 = const Color(0xffF6F6F6);
@@ -23,7 +23,7 @@ class AppColors {
   static Color grayText = const Color.fromARGB(255, 144, 144, 144);
   static Color lightPrimaryColor = const Color(0xff6bbed0);
   static Color lightPrimaryColorDark = const Color(0xff7c46bf);
-  static Color scaffoldBackgroundColorLight = Color.fromARGB(255, 249, 252, 255);
+  static Color scaffoldBackgroundColorLight = const Color.fromARGB(255, 249, 252, 255);
   static Color standartColor(BuildContext context) =>
       !Provider.of<ThemeProviderNotifier>(context, listen: false).isDarkMode
           ? const Color(0xffffffff)

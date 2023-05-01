@@ -7,6 +7,7 @@ final ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.scaffoldBackgroundColorLight,
     brightness: Brightness.light,
     splashColor: AppColors.splashColor,
+    highlightColor: AppColors.splashColor,
     splashFactory: InkRipple.splashFactory,
     primaryColor: AppColors.lightPrimaryColor,
     unselectedWidgetColor: AppColors.gray300,

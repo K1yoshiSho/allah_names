@@ -21,40 +21,15 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AppNavBarPage(),
       );
     },
-    HomeRoute.name: (routeData) {
+    SplashScreenRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
-      );
-    },
-    EHomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const EHomePage(),
-      );
-    },
-    SettingsRoute.name: (routeData) {
-      final args = routeData.argsAs<SettingsRouteArgs>(orElse: () => const SettingsRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: SettingsPage(key: args.key),
-      );
-    },
-    ESettingsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ESettingsPage(),
-      );
-    },
-    SingleNameRoute.name: (routeData) {
-      final args = routeData.argsAs<SingleNameRouteArgs>(orElse: () => const SingleNameRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: SingleNamePage(key: args.key),
+        child: const SplashScreenPage(),
       );
     },
     AdditionallyRoute.name: (routeData) {
-      final args = routeData.argsAs<AdditionallyRouteArgs>(orElse: () => const AdditionallyRouteArgs());
+      final args = routeData.argsAs<AdditionallyRouteArgs>(
+          orElse: () => const AdditionallyRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AdditionallyPage(key: args.key),
@@ -67,7 +42,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     FavouritesRoute.name: (routeData) {
-      final args = routeData.argsAs<FavouritesRouteArgs>(orElse: () => const FavouritesRouteArgs());
+      final args = routeData.argsAs<FavouritesRouteArgs>(
+          orElse: () => const FavouritesRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: FavouritesPage(key: args.key),
@@ -77,6 +53,52 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const EFavouritesPage(),
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
+    },
+    EHomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EHomePage(),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchPage(
+          key: args.key,
+          isList: args.isList,
+        ),
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      final args = routeData.argsAs<SettingsRouteArgs>(
+          orElse: () => const SettingsRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SettingsPage(key: args.key),
+      );
+    },
+    ESettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ESettingsPage(),
+      );
+    },
+    SingleNameRoute.name: (routeData) {
+      final args = routeData.argsAs<SingleNameRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SingleNamePage(
+          key: args.key,
+          allahNameKZ: args.allahNameKZ,
+        ),
       );
     },
   };
@@ -97,101 +119,17 @@ class AppNavBarRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
+/// [SplashScreenPage]
+class SplashScreenRoute extends PageRouteInfo<void> {
+  const SplashScreenRoute({List<PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
+          SplashScreenRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'SplashScreenRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [EHomePage]
-class EHomeRoute extends PageRouteInfo<void> {
-  const EHomeRoute({List<PageRouteInfo>? children})
-      : super(
-          EHomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EHomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [SettingsPage]
-class SettingsRoute extends PageRouteInfo<SettingsRouteArgs> {
-  SettingsRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          SettingsRoute.name,
-          args: SettingsRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'SettingsRoute';
-
-  static const PageInfo<SettingsRouteArgs> page = PageInfo<SettingsRouteArgs>(name);
-}
-
-class SettingsRouteArgs {
-  const SettingsRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'SettingsRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [ESettingsPage]
-class ESettingsRoute extends PageRouteInfo<void> {
-  const ESettingsRoute({List<PageRouteInfo>? children})
-      : super(
-          ESettingsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ESettingsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [SingleNamePage]
-class SingleNameRoute extends PageRouteInfo<SingleNameRouteArgs> {
-  SingleNameRoute({
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          SingleNameRoute.name,
-          args: SingleNameRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'SingleNameRoute';
-
-  static const PageInfo<SingleNameRouteArgs> page = PageInfo<SingleNameRouteArgs>(name);
-}
-
-class SingleNameRouteArgs {
-  const SingleNameRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'SingleNameRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for
@@ -208,7 +146,8 @@ class AdditionallyRoute extends PageRouteInfo<AdditionallyRouteArgs> {
 
   static const String name = 'AdditionallyRoute';
 
-  static const PageInfo<AdditionallyRouteArgs> page = PageInfo<AdditionallyRouteArgs>(name);
+  static const PageInfo<AdditionallyRouteArgs> page =
+      PageInfo<AdditionallyRouteArgs>(name);
 }
 
 class AdditionallyRouteArgs {
@@ -250,7 +189,8 @@ class FavouritesRoute extends PageRouteInfo<FavouritesRouteArgs> {
 
   static const String name = 'FavouritesRoute';
 
-  static const PageInfo<FavouritesRouteArgs> page = PageInfo<FavouritesRouteArgs>(name);
+  static const PageInfo<FavouritesRouteArgs> page =
+      PageInfo<FavouritesRouteArgs>(name);
 }
 
 class FavouritesRouteArgs {
@@ -276,4 +216,150 @@ class EFavouritesRoute extends PageRouteInfo<void> {
   static const String name = 'EFavouritesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EHomePage]
+class EHomeRoute extends PageRouteInfo<void> {
+  const EHomeRoute({List<PageRouteInfo>? children})
+      : super(
+          EHomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EHomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchPage]
+class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
+  SearchRoute({
+    Key? key,
+    required bool isList,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchRoute.name,
+          args: SearchRouteArgs(
+            key: key,
+            isList: isList,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const PageInfo<SearchRouteArgs> page = PageInfo<SearchRouteArgs>(name);
+}
+
+class SearchRouteArgs {
+  const SearchRouteArgs({
+    this.key,
+    required this.isList,
+  });
+
+  final Key? key;
+
+  final bool isList;
+
+  @override
+  String toString() {
+    return 'SearchRouteArgs{key: $key, isList: $isList}';
+  }
+}
+
+/// generated route for
+/// [SettingsPage]
+class SettingsRoute extends PageRouteInfo<SettingsRouteArgs> {
+  SettingsRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SettingsRoute.name,
+          args: SettingsRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
+
+  static const PageInfo<SettingsRouteArgs> page =
+      PageInfo<SettingsRouteArgs>(name);
+}
+
+class SettingsRouteArgs {
+  const SettingsRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SettingsRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [ESettingsPage]
+class ESettingsRoute extends PageRouteInfo<void> {
+  const ESettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          ESettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ESettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SingleNamePage]
+class SingleNameRoute extends PageRouteInfo<SingleNameRouteArgs> {
+  SingleNameRoute({
+    Key? key,
+    required AllahNameKZ allahNameKZ,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SingleNameRoute.name,
+          args: SingleNameRouteArgs(
+            key: key,
+            allahNameKZ: allahNameKZ,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SingleNameRoute';
+
+  static const PageInfo<SingleNameRouteArgs> page =
+      PageInfo<SingleNameRouteArgs>(name);
+}
+
+class SingleNameRouteArgs {
+  const SingleNameRouteArgs({
+    this.key,
+    required this.allahNameKZ,
+  });
+
+  final Key? key;
+
+  final AllahNameKZ allahNameKZ;
+
+  @override
+  String toString() {
+    return 'SingleNameRouteArgs{key: $key, allahNameKZ: $allahNameKZ}';
+  }
 }

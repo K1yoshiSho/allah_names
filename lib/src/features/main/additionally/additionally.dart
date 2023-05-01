@@ -15,7 +15,7 @@ class AdditionallyPage extends StatelessWidget {
     return Scaffold(
         key: _scaffoldKey,
         body: Center(
-          child: Text(AppLocalizations.of(context).settings),
+          child: Text(AppLocalizations.of(context).additinally),
         ));
   }
 }

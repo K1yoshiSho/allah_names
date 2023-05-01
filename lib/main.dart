@@ -1,11 +1,12 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:allah_names/firebase_options.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
 import 'package:allah_names/src/features/app/app.dart';
+import 'package:allah_names/src/services/provider/app_provider.dart';
 import 'package:allah_names/src/services/provider/locale_provider.dart';
 import 'package:allah_names/src/services/provider/theme_provider.dart';
 import 'package:bloc/bloc.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -31,8 +32,14 @@ Future main() async {
         providers: [
           ChangeNotifierProvider(create: (context) => LocaleNotifier()),
           ChangeNotifierProvider(create: (context) => ThemeProviderNotifier()),
+          ChangeNotifierProvider(create: (context) => AppNotifier()),
         ],
-        child: const AllahApp(),
+        child: DevicePreview(
+          enabled: !kReleaseMode,
+          builder: (BuildContext context) {
+            return const AllahApp();
+          },
+        ),
       ),
     );
   }, (error, stackTrace) {
