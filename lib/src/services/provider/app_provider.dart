@@ -1,32 +1,40 @@
 import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
+import 'package:allah_names/src/common/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class AppNotifier extends ChangeNotifier {
-  List<AllahNameKZ> allahNameKZ = [];
-  double initialOffsetMainPage = 0.0;
-  // AllahNameRU? allahNameRU;
-  // AllahNameEN? allahNameEN;
-  // AllahNameTR? allahNameTR;
+  AllahNames? _allahNames;
 
-  // getters
-  List<AllahNameKZ> get getAllahNameKZ => allahNameKZ;
-  double get getInitialOffsetMainPage => initialOffsetMainPage;
+  AllahNames? get getAllahNames => _allahNames;
 
-  // setters
-  void setAllahNameKZ(List<AllahNameKZ> allahNameKZ) {
-    this.allahNameKZ = allahNameKZ;
+  // setter
+  void setAllahNames(AllahNames allahNames) {
+    _allahNames = allahNames;
     notifyListeners();
   }
 
-  void setInitialOffsetMainPage(double initialOffsetMainPage) {
-    this.initialOffsetMainPage = initialOffsetMainPage;
+  void addTranslatedNames({required TranslatedName key, required List<AllahName> names}) {
+    switch (key) {
+      case TranslatedName.en:
+        _allahNames!.allahNamesEN.addAll(names);
+        break;
+      case TranslatedName.kz:
+        _allahNames!.allahNamesKZ.addAll(names);
+        break;
+      case TranslatedName.ru:
+        _allahNames!.allahNamesRU.addAll(names);
+        break;
+      case TranslatedName.tr:
+        _allahNames!.allahNamesTR.addAll(names);
+        break;
+    }
     notifyListeners();
   }
 
   // clear all
   void clearAll() {
-    allahNameKZ.clear();
-    initialOffsetMainPage = 0.0;
+    _allahNames = null;
     notifyListeners();
   }
 }

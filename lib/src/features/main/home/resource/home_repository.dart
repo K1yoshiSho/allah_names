@@ -1,39 +1,65 @@
 import 'dart:convert';
 
 import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/features/main/home/bloc/home_bloc.dart';
+import 'package:allah_names/src/services/get_it.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
 abstract class HomeRepository {
-  Future<void> getHKZEvent(GetKZNames event, Emitter<HomeState> emit);
+  Future<void> getHEvent(GetNames event, Emitter<HomeState> emit);
 
   static getImage(int index) {
-    if (index == 1) {
-      return 'assets/images/allah.webp';
-    } else {
-      int temp = index % 10;
-      if (temp == 8) {
-        temp = 1;
-      } else if (temp == 9) {
-        temp = 2;
+    try {
+      if (index == 1) {
+        return 'assets/images/allah.webp';
+      } else {
+        int temp = index % 10;
+        if (temp == 8) {
+          temp = 1;
+        } else if (temp == 9) {
+          temp = 2;
+        }
+        return 'assets/images/${(temp)}.webp';
       }
-      return 'assets/images/${(temp)}.webp';
+    } on Exception catch (e, st) {
+      getIt<Talker>().handle(e, st);
     }
   }
 }
 
 class BLoCHomeRepository extends HomeRepository {
   @override
-  Future<void> getHKZEvent(GetKZNames event, Emitter<HomeState> emit) async {
+  Future<void> getHEvent(GetNames event, Emitter<HomeState> emit) async {
+    AllahNames allahNames = AllahNames(
+      allahNamesEN: [],
+      allahNamesKZ: [],
+      allahNamesRU: [],
+      allahNamesTR: [],
+    );
     try {
-      emit(HKZLoadingState());
-      final String response = await rootBundle.loadString('assets/json/names_kz.json');
-      final data = await compute(parseJsonData, response);
-      emit(HKZFetchedState(namesListKZ: AllahNameKZ.fromList(data)));
-    } catch (e) {
-      emit(HKZFailureState(message: e.toString()));
+      emit(HLoadingState());
+      final responses = await Future.wait([
+        rootBundle.loadString('assets/json/names_kz.json'),
+        rootBundle.loadString('assets/json/names_ru.json'),
+        rootBundle.loadString('assets/json/names_en.json'),
+        rootBundle.loadString('assets/json/names_tr.json'),
+      ]);
+
+      final data = await Future.wait(responses.map((response) => compute(parseJsonData, response)));
+
+      allahNames.allahNamesKZ.addAll(AllahName.fromList(data[0]));
+      allahNames.allahNamesRU.addAll(AllahName.fromList(data[1]));
+      allahNames.allahNamesEN.addAll(AllahName.fromList(data[2]));
+      allahNames.allahNamesTR.addAll(AllahName.fromList(data[3]));
+
+      emit(HFetchedState(allahNames: allahNames));
+    } catch (e, st) {
+      getIt<Talker>().handle(e, st);
+      emit(HFailureState(message: e.toString()));
     }
   }
 }

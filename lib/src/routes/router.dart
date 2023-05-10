@@ -1,5 +1,5 @@
 import 'package:allah_names/src/common/components/navbar.dart';
-import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/features/app/initial_splash_page.dart';
 import 'package:allah_names/src/features/main/additionally/additionally.dart';
 import 'package:allah_names/src/features/main/favourites/favourites.dart';

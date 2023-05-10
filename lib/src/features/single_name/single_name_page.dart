@@ -1,5 +1,5 @@
 import 'package:allah_names/src/common/components/buttons/app_icon_button.dart';
-import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/common/theme/app_fonts.dart';
 import 'package:allah_names/src/common/utils/app_model.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
@@ -21,7 +21,7 @@ class SingleNamePage extends StatefulWidget {
   static const String name = "Home";
   static const String routePath = "home";
 
-  final AllahNameKZ allahNameKZ;
+  final AllahName allahNameKZ;
 
   @override
   State<SingleNamePage> createState() => _SingleNamePageState();
@@ -37,7 +37,7 @@ class _SingleNamePageState extends State<SingleNamePage> with TickerProviderStat
     super.initState();
     _model = createModel(context, () => SingleNameModel());
     _model.appProvider = Provider.of<AppNotifier>(context, listen: false);
-    _model.allahNameKZ = _model.appProvider.allahNameKZ;
+    _model.allahNameKZ = _model.appProvider.getAllahNames?.allahNamesKZ ?? [];
     logFirebaseEvent(
       AnalyticsEvents.screenView,
       parameters: {
@@ -227,35 +227,38 @@ class _SingleNamePageState extends State<SingleNamePage> with TickerProviderStat
     );
   }
 
-  Row _headerBody(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        AppIconButton(
-          icon: Icon(
-            Icons.keyboard_arrow_left_rounded,
-            color: AppColors.gray600,
-            size: 30,
+  Widget _headerBody(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          AppIconButton(
+            icon: Icon(
+              Icons.keyboard_arrow_left_rounded,
+              color: AppColors.gray600,
+              size: 30,
+            ),
+            fillColor: AppColors.gray200,
+            buttonSize: 44,
+            borderRadius: 12,
+            onPressed: () {
+              context.popRoute();
+            },
           ),
-          fillColor: AppColors.gray200,
-          buttonSize: 44,
-          borderRadius: 12,
-          onPressed: () {
-            context.popRoute();
-          },
-        ),
-        AppIconButton(
-          icon: Icon(
-            Icons.share_outlined,
-            color: AppColors.gray600,
-            size: 25,
+          AppIconButton(
+            icon: Icon(
+              Icons.share_outlined,
+              color: AppColors.gray600,
+              size: 25,
+            ),
+            fillColor: AppColors.gray200,
+            buttonSize: 44,
+            borderRadius: 12,
+            onPressed: () {},
           ),
-          fillColor: AppColors.gray200,
-          buttonSize: 44,
-          borderRadius: 12,
-          onPressed: () {},
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

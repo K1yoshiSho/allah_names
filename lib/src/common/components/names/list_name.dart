@@ -1,8 +1,8 @@
-import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/common/theme/app_fonts.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,7 +15,8 @@ class NameListBody extends StatelessWidget {
     required this.imagePath,
     required this.nameArabic,
     required this.isList,
-    required this.allahNameKZ, required this.onTap,
+    required this.allahNameKZ,
+    required this.onTap,
   });
 
   final int index;
@@ -24,7 +25,7 @@ class NameListBody extends StatelessWidget {
   final String shortMeaning;
   final String imagePath;
   final bool isList;
-  final AllahNameKZ allahNameKZ;
+  final AllahName allahNameKZ;
   final Function() onTap;
 
   @override
@@ -129,7 +130,9 @@ class NameListBody extends StatelessWidget {
                     size: 30,
                   ),
                   onPressed: () {
-                    print('IconButton pressed ...');
+                    if (kDebugMode) {
+                      print('IconButton pressed ...');
+                    }
                   },
                 ),
               ],
@@ -203,7 +206,9 @@ class NameListBody extends StatelessWidget {
                     size: 30,
                   ),
                   onPressed: () {
-                    print('IconButton pressed ...');
+                    if (kDebugMode) {
+                      print('IconButton pressed ...');
+                    }
                   },
                 ),
               ],

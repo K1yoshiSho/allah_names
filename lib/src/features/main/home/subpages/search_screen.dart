@@ -1,6 +1,6 @@
 import 'package:allah_names/src/common/components/names/list_name.dart';
 import 'package:allah_names/src/common/components/textfields/outlined_textfield.dart';
-import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/common/theme/app_fonts.dart';
 import 'package:allah_names/src/common/utils/app_model.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
@@ -32,14 +32,14 @@ class _HomePageState extends State<SearchPage> with TickerProviderStateMixin {
   late AppLocalizations _localizations;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  List<AllahNameKZ> _names = [];
+  List<AllahName> _names = [];
   String? query;
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SearchPageModel());
     _model.appProvider = Provider.of<AppNotifier>(context, listen: false);
-    _model.allahNameKZ = _model.appProvider.allahNameKZ;
+    _model.allahNameKZ = _model.appProvider.getAllahNames?.allahNamesKZ ?? [];
     _names = _model.allahNameKZ;
     logFirebaseEvent(
       AnalyticsEvents.screenView,
@@ -89,7 +89,7 @@ class _HomePageState extends State<SearchPage> with TickerProviderStateMixin {
                                 child: DynamicHeightGridView(
                                   itemCount: _names.length,
                                   builder: (BuildContext context, int index) {
-                                    AllahNameKZ name = _names[index];
+                                    AllahName name = _names[index];
                                     return Padding(
                                       padding: (_model.isList)
                                           ? const EdgeInsets.only(left: 0, right: 0, bottom: 16)

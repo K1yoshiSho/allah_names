@@ -8,6 +8,6 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final BLoCHomeRepository _repository = BLoCHomeRepository();
   HomeBloc() : super(HInitialState()) {
-    on<GetKZNames>(_repository.getHKZEvent);
+    on<GetNames>(_repository.getHEvent);
   }
 }

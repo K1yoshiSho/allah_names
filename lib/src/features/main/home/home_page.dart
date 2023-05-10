@@ -1,7 +1,6 @@
-import 'package:allah_names/src/common/components/keep_alive_wrapper.dart';
 import 'package:allah_names/src/common/components/names/list_name.dart';
 import 'package:allah_names/src/common/components/textfields/outlined_textfield.dart';
-import 'package:allah_names/src/common/models/allah_name.dart';
+import 'package:allah_names/src/common/models/names_kz.dart';
 import 'package:allah_names/src/common/theme/app_fonts.dart';
 import 'package:allah_names/src/common/utils/app_model.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _model.appProvider = Provider.of<AppNotifier>(context, listen: false);
     // _scrollController = ScrollController(initialScrollOffset: _model.appProvider.getInitialOffsetMainPage);
     _animationController = AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    _model.allahNameKZ = _model.appProvider.allahNameKZ;
+    _model.allahNameKZ = _model.appProvider.getAllahNames?.allahNamesRU ?? [];
     logFirebaseEvent(
       AnalyticsEvents.screenView,
       parameters: {
@@ -93,7 +92,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   key: const PageStorageKey<String>("gridView"),
                                   itemCount: _model.allahNameKZ.length,
                                   builder: (BuildContext context, int index) {
-                                    AllahNameKZ name = _model.allahNameKZ[index];
+                                    AllahName name = _model.allahNameKZ[index];
                                     return Padding(
                                       padding: (_model.isList)
                                           ? const EdgeInsets.only(left: 0, right: 0, bottom: 16)
@@ -107,7 +106,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         isList: _model.isList,
                                         allahNameKZ: name,
                                         onTap: () async {
-                                          _model.appProvider.setInitialOffsetMainPage(600);
                                           context.router.push(SingleNameRoute(allahNameKZ: name));
                                         },
                                       ),

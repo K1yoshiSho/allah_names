@@ -8,3 +8,10 @@ export '../../routes/router.dart';
 export 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const String arabicFont = "scheherazaderegular";
+
+enum TranslatedName {
+  en,
+  kz,
+  ru,
+  tr,
+}

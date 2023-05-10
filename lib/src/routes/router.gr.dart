@@ -28,8 +28,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     AdditionallyRoute.name: (routeData) {
-      final args = routeData.argsAs<AdditionallyRouteArgs>(
-          orElse: () => const AdditionallyRouteArgs());
+      final args = routeData.argsAs<AdditionallyRouteArgs>(orElse: () => const AdditionallyRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AdditionallyPage(key: args.key),
@@ -42,8 +41,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     FavouritesRoute.name: (routeData) {
-      final args = routeData.argsAs<FavouritesRouteArgs>(
-          orElse: () => const FavouritesRouteArgs());
+      final args = routeData.argsAs<FavouritesRouteArgs>(orElse: () => const FavouritesRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: FavouritesPage(key: args.key),
@@ -78,8 +76,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     SettingsRoute.name: (routeData) {
-      final args = routeData.argsAs<SettingsRouteArgs>(
-          orElse: () => const SettingsRouteArgs());
+      final args = routeData.argsAs<SettingsRouteArgs>(orElse: () => const SettingsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: SettingsPage(key: args.key),
@@ -146,8 +143,7 @@ class AdditionallyRoute extends PageRouteInfo<AdditionallyRouteArgs> {
 
   static const String name = 'AdditionallyRoute';
 
-  static const PageInfo<AdditionallyRouteArgs> page =
-      PageInfo<AdditionallyRouteArgs>(name);
+  static const PageInfo<AdditionallyRouteArgs> page = PageInfo<AdditionallyRouteArgs>(name);
 }
 
 class AdditionallyRouteArgs {
@@ -189,8 +185,7 @@ class FavouritesRoute extends PageRouteInfo<FavouritesRouteArgs> {
 
   static const String name = 'FavouritesRoute';
 
-  static const PageInfo<FavouritesRouteArgs> page =
-      PageInfo<FavouritesRouteArgs>(name);
+  static const PageInfo<FavouritesRouteArgs> page = PageInfo<FavouritesRouteArgs>(name);
 }
 
 class FavouritesRouteArgs {
@@ -297,8 +292,7 @@ class SettingsRoute extends PageRouteInfo<SettingsRouteArgs> {
 
   static const String name = 'SettingsRoute';
 
-  static const PageInfo<SettingsRouteArgs> page =
-      PageInfo<SettingsRouteArgs>(name);
+  static const PageInfo<SettingsRouteArgs> page = PageInfo<SettingsRouteArgs>(name);
 }
 
 class SettingsRouteArgs {
@@ -331,7 +325,7 @@ class ESettingsRoute extends PageRouteInfo<void> {
 class SingleNameRoute extends PageRouteInfo<SingleNameRouteArgs> {
   SingleNameRoute({
     Key? key,
-    required AllahNameKZ allahNameKZ,
+    required AllahName allahNameKZ,
     List<PageRouteInfo>? children,
   }) : super(
           SingleNameRoute.name,
@@ -344,8 +338,7 @@ class SingleNameRoute extends PageRouteInfo<SingleNameRouteArgs> {
 
   static const String name = 'SingleNameRoute';
 
-  static const PageInfo<SingleNameRouteArgs> page =
-      PageInfo<SingleNameRouteArgs>(name);
+  static const PageInfo<SingleNameRouteArgs> page = PageInfo<SingleNameRouteArgs>(name);
 }
 
 class SingleNameRouteArgs {
@@ -356,7 +349,7 @@ class SingleNameRouteArgs {
 
   final Key? key;
 
-  final AllahNameKZ allahNameKZ;
+  final AllahName allahNameKZ;
 
   @override
   String toString() {

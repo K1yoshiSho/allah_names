@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreenPage> {
   void initState() {
     super.initState();
     _bloc = HomeBloc();
-    _bloc.add(GetKZNames());
+    _bloc.add(GetNames());
   }
 
   @override
@@ -40,9 +40,9 @@ class _SplashScreenState extends State<SplashScreenPage> {
       body: BlocConsumer<HomeBloc, HomeState>(
         bloc: _bloc,
         listener: (context, state) {
-          if (state is HKZFetchedState) {
-            List<AllahNameKZ> temp = state.namesListKZ;
-            _appProvider.setAllahNameKZ(temp);
+          if (state is HFetchedState) {
+            AllahNames temp = state.allahNames;
+            _appProvider.setAllahNames(temp);
             context.router.replace(const AppNavBarRoute());
           }
         },

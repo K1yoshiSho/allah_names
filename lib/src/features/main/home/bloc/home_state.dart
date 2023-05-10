@@ -16,13 +16,13 @@ class HInitialState extends HomeState {}
 
 // ---------------------------------- Loading State ----------------------------------
 
-class HKZLoadingState extends HomeState {}
+class HLoadingState extends HomeState {}
 
 // ---------------------------------- Failure State ----------------------------------
 
-class HKZFailureState extends HomeState {
+class HFailureState extends HomeState {
   final String message;
-  const HKZFailureState({required this.message});
+  const HFailureState({required this.message});
 
   @override
   List<Object> get props => [message];
@@ -30,11 +30,11 @@ class HKZFailureState extends HomeState {
 
 // ---------------------------------- Fetched State ----------------------------------
 
-class HKZFetchedState extends HomeState {
-  final List<AllahNameKZ> namesListKZ;
+class HFetchedState extends HomeState {
+  final AllahNames allahNames;
 
-  const HKZFetchedState({required this.namesListKZ});
+  const HFetchedState({required this.allahNames});
 
   @override
-  List<Object> get props => [namesListKZ];
+  List<Object> get props => [allahNames];
 }
