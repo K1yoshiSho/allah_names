@@ -26,7 +26,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin<HomePage> {
   late HomeModel _model;
   late AppLocalizations _localizations;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,6 +59,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     _localizations = AppLocalizations.of(context);
     // _scrollController.jumpTo(_model.appProvider.getInitialOffsetMainPage);
 
@@ -180,6 +181,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ],
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 @RoutePage()

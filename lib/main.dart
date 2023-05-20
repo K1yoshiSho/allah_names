@@ -17,16 +17,16 @@ import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final Talker talker = TalkerFlutter.init();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await sharedPreference.initSharedPreferences();
-  await initTalker(talker: talker);
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    final Talker talker = TalkerFlutter.init();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await sharedPreference.initSharedPreferences();
+    await initTalker(talker: talker);
 
-  sharedPreference.setDarkMode(false);
-  runZonedGuarded(() {
+    sharedPreference.setDarkMode(false);
     runApp(
       MultiProvider(
         providers: [
