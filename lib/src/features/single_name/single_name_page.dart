@@ -7,14 +7,13 @@ import 'package:allah_names/src/constants/analytics_events.dart';
 import 'package:allah_names/src/features/main/home/resource/home_repository.dart';
 import 'package:allah_names/src/features/single_name/model_single_name.dart';
 import 'package:allah_names/src/services/provider/app_provider.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-@RoutePage()
 class SingleNamePage extends StatefulWidget {
   const SingleNamePage({Key? key, required this.allahNameKZ}) : super(key: key);
 

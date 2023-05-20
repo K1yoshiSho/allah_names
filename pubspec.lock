@@ -65,22 +65,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  auto_route:
-    dependency: "direct main"
-    description:
-      name: auto_route
-      sha256: b7651565019e583e9e9c357c576176ffd407e87f207440ace1b7b8a5b914f82a
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.1.0"
-  auto_route_generator:
-    dependency: "direct dev"
-    description:
-      name: auto_route_generator
-      sha256: badd3fd1dad60d9308b23fca2d5d57655bf0dd930e1963ead097b4c9d8d56f76
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.0"
   auto_size_text:
     dependency: "direct main"
     description:
@@ -501,6 +485,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  go_router:
+    dependency: "direct main"
+    description:
+      name: go_router
+      sha256: b185cf91b5a6861f4c2a92ddaa65f8919909416ee033e00751f7c67ebee1588d
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.2"
   graphs:
     dependency: transitive
     description:
@@ -890,14 +882,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  source_gen:
-    dependency: transitive
-    description:
-      name: source_gen
-      sha256: c2bea18c95cfa0276a366270afaa2850b09b4a76db95d546f3d003dcc7011298
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.7"
   source_span:
     dependency: transitive
     description:

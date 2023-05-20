@@ -8,13 +8,12 @@ import 'package:allah_names/src/constants/analytics_events.dart';
 import 'package:allah_names/src/features/main/home/resource/home_repository.dart';
 import 'package:allah_names/src/features/main/home/subpages/model_search_page.dart';
 import 'package:allah_names/src/services/provider/app_provider.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 
-@RoutePage()
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key, required this.isList}) : super(key: key);
 

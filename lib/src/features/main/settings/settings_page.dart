@@ -1,8 +1,7 @@
 import 'package:allah_names/src/common/utils/utils.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:flutter/material.dart';
 
-@RoutePage()
 class SettingsPage extends StatelessWidget {
   SettingsPage({super.key});
 
@@ -20,7 +19,6 @@ class SettingsPage extends StatelessWidget {
   }
 }
 
-@RoutePage()
 class ESettingsPage extends AutoRouter {
   const ESettingsPage({super.key});
 }

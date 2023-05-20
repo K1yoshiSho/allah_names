@@ -2,12 +2,11 @@ import 'package:allah_names/src/common/models/allah_name.dart';
 import 'package:allah_names/src/common/utils/utils.dart';
 import 'package:allah_names/src/features/main/home/bloc/home_bloc.dart';
 import 'package:allah_names/src/services/provider/app_provider.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-@RoutePage()
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
 
@@ -43,7 +42,7 @@ class _SplashScreenState extends State<SplashScreenPage> {
           if (state is HFetchedState) {
             AllahNames temp = state.allahNames;
             _appProvider.setAllahNames(temp);
-            context.router.replace(const AppNavBarRoute());
+            // context..replace(const AppNavBarRoute()); // TODO: uncomment this line
           }
         },
         builder: (context, state) {

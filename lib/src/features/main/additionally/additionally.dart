@@ -1,8 +1,7 @@
 import 'package:allah_names/src/common/utils/utils.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:flutter/material.dart';
 
-@RoutePage()
 class AdditionallyPage extends StatelessWidget {
   AdditionallyPage({super.key});
 
@@ -18,9 +17,4 @@ class AdditionallyPage extends StatelessWidget {
           child: Text(AppLocalizations.of(context).additinally),
         ));
   }
-}
-
-@RoutePage()
-class EAdditionallyPage extends AutoRouter {
-  const EAdditionallyPage({super.key});
 }

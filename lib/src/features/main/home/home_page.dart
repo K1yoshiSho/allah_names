@@ -8,14 +8,13 @@ import 'package:allah_names/src/constants/analytics_events.dart';
 import 'package:allah_names/src/features/main/home/resource/home_repository.dart';
 import 'package:allah_names/src/services/provider/app_provider.dart';
 import 'package:animated_icon_button/animated_icon_button.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'model_home_page.dart';
 export 'model_home_page.dart';
 
-@RoutePage()
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -107,7 +106,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
                                         isList: _model.isList,
                                         allahNameKZ: name,
                                         onTap: () async {
-                                          context.router.push(SingleNameRoute(allahNameKZ: name));
+                                          // context.router.push(SingleNameRoute(allahNameKZ: name)); // TODO
                                         },
                                       ),
                                     );
@@ -170,7 +169,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
             readOnly: true,
             labelText: "",
             onTap: () {
-              context.router.push(SearchRoute(isList: _model.isList));
+              // context.router.push(SearchRoute(isList: _model.isList)); // TODO
             },
             prefixIcon: Icon(AppIcons.kfiRrSearch, color: AppColors.gray600, size: 16),
             hintText: '${_localizations.appName}...',
@@ -184,9 +183,4 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
 
   @override
   bool get wantKeepAlive => true;
-}
-
-@RoutePage()
-class EHomePage extends AutoRouter {
-  const EHomePage({super.key});
 }

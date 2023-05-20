@@ -1,6 +1,6 @@
 import 'package:allah_names/src/common/utils/utils.dart';
 import 'package:allah_names/src/services/provider/locale_provider.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -38,7 +38,6 @@ class _AllahAppState extends State<AllahApp> {
       }),
       supportedLocales: AppLocalizations.supportedLocales,
       theme: lightTheme,
-      useInheritedMediaQuery: true,
       builder: DevicePreview.appBuilder,
       onGenerateTitle: (context) => AppLocalizations.of(context).appName,
       darkTheme: null,
