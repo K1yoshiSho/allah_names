@@ -18,48 +18,48 @@
 //         SettingsRoute(),
 //       ],
 //       bottomNavigationBuilder: (_, tabsRouter) {
-//         return SalomonBottomBar(
-//           margin: const EdgeInsets.symmetric(
-//             horizontal: 15,
-//             vertical: 15,
-//           ),
-//           currentIndex: tabsRouter.activeIndex,
-//           onTap: tabsRouter.setActiveIndex,
-//           items: [
-//             SalomonBottomBarItem(
-//               selectedColor: AppColors.primaryColor(context),
-//               icon: const Icon(
-//                 AppIcons.kthList,
-//                 size: 20,
-//               ),
-//               title: Text(" ${AppLocalizations.of(context).home}"),
-//             ),
-//             SalomonBottomBarItem(
-//               selectedColor: AppColors.primaryColor(context),
-//               icon: const Icon(
-//                 AppIcons.kgroup184Traced,
-//                 size: 20,
-//               ),
-//               title: Text(AppLocalizations.of(context).favourites),
-//             ),
-//             SalomonBottomBarItem(
-//               selectedColor: AppColors.primaryColor(context),
-//               icon: const Icon(
-//                 AppIcons.kextensions,
-//                 size: 18,
-//               ),
-//               title: Text("  ${AppLocalizations.of(context).additinally}"),
-//             ),
-//             SalomonBottomBarItem(
-//               selectedColor: AppColors.primaryColor(context),
-//               icon: const Icon(
-//                 AppIcons.kfiSrSettings,
-//                 size: 20,
-//               ),
-//               title: Text(AppLocalizations.of(context).settings),
-//             )
-//           ],
-//         );
+        // return SalomonBottomBar(
+        //   margin: const EdgeInsets.symmetric(
+        //     horizontal: 15,
+        //     vertical: 15,
+        //   ),
+        //   currentIndex: tabsRouter.activeIndex,
+        //   onTap: tabsRouter.setActiveIndex,
+        //   items: [
+        //     SalomonBottomBarItem(
+        //       selectedColor: AppColors.primaryColor(context),
+        //       icon: const Icon(
+        //         AppIcons.kthList,
+        //         size: 20,
+        //       ),
+        //       title: Text(" ${AppLocalizations.of(context).home}"),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       selectedColor: AppColors.primaryColor(context),
+        //       icon: const Icon(
+        //         AppIcons.kgroup184Traced,
+        //         size: 20,
+        //       ),
+        //       title: Text(AppLocalizations.of(context).favourites),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       selectedColor: AppColors.primaryColor(context),
+        //       icon: const Icon(
+        //         AppIcons.kextensions,
+        //         size: 18,
+        //       ),
+        //       title: Text("  ${AppLocalizations.of(context).additinally}"),
+        //     ),
+        //     SalomonBottomBarItem(
+        //       selectedColor: AppColors.primaryColor(context),
+        //       icon: const Icon(
+        //         AppIcons.kfiSrSettings,
+        //         size: 20,
+        //       ),
+        //       title: Text(AppLocalizations.of(context).settings),
+        //     )
+        //   ],
+        // );
 //       },
 //     );
 //   }
